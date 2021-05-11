@@ -1,0 +1,17 @@
+create database College;
+use College;
+create table College_Reg(College_Id int(100) auto_increment primary key, College_Name varchar(200) not null unique,  Username varchar(200) not null unique, College_Email varchar(200) unique, Password varchar(1000) not null);
+create table College_Details(Username varchar(200) primary key, College_Name varchar(200) UNIQUE, Location varchar(200) not null, Fees varchar(150) not null, Courses varchar(200) not null, Application_Link varchar(400), Contact bigint(15) not null, Nirf_Rank bigint(10), Average_CTC varchar(200), Notable_Companies varchar(1000), JEE_MAINS_Rank_Criteria varchar(100), About text, Website_Link varchar(400) );
+create table Student(Student_ID int(100) auto_increment primary key, Username varchar(200) not null unique,Student_Name varchar(200) not null, email  varchar(200) not null unique, Contact bigint(15), Password varchar(1000) not null );
+create table Report(Report_Id int(100) auto_increment primary key, College_Name varchar(200), Complain text);
+create table Admin(Admin_Id varchar(200) primary key, password varchar(300));
+insert into Admin values('Hazardous', 'vibhu1224');
+insert into Admin values('Zlatan', 'nahi_degi');
+insert into Admin values('Avnish', 'kachra_seth');
+drop table Admin;
+drop table College_Details;
+select*from College_Reg;
+select*from College_Details;
+select * from Student;
+select * from Report;
+Alter table College_Details add foreign key(College_Name) references College_Reg(College_Name);
