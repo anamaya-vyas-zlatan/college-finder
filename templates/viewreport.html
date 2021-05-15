@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REPORTS</title>
+</head>
+<body>
+
+
+
+    <table class ="table table-striped table-dark">
+        <tr>
+            <th>ID</th>
+            <th>REPORT COLLEGE</th>
+            <th>REPOT ISSUE</th>
+        </tr>
+        {% for myprob in myproblems %}
+            <tr>
+                <td>{{myprob.Report_Id}}</td>
+                <td>{{myprob.College_Name}}</td>
+                <td>{{myprob.Complain}}</td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+<br>
+    <a href="/dashboard_admin"><i class='fas fa-funnel-dollar'></i>Dashboard</a>
+</body>
+</html>

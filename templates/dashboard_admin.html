@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN</title>
+</head>
+<body>
+
+<h1>Dashboard for admin <br> <small> Welcome {{session.username}}</small></h1>
+<br>
+
+    <a href="/viewcollege"><i class='fas fa-funnel-dollar'></i>VIEW ALL REGISTERED COLLEGES</a>
+<br>
+<a href="/viewstudent"><i class='fas fa-funnel-dollar'></i>VIEW ALL STUDENTS</a>
+<br>
+<a href="/viewreport"><i class='fas fa-funnel-dollar'></i>VIEW ALL REPORTS</a>
+<br>
+{%if session.logged_in %}
+    <a href="/logout_admin">Logout</a>
+    {% endif %}
+</body>
+</html>

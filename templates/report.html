@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+section id="title">
+      <div class="fluid-container fixed-top shadow-lg  mb-5">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="/dashboardstudent"><span class="logo-hover"><i class="fas fa-graduation-cap"></i>CollegeFinder</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li>
+                </li>
+                <li class="nav-item">
+                  <div class="dropdown show">
+                  <a class="btn navbtn" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span>Hi, {{session.username}}!<i class="fas fa-caret-down"></i></span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a href="/sort" class='dropdown-item'>Sort Colleges</a>
+                    <a href="/report" class="dropdown-item">Report college</a>
+                    <a href="/logoutstudent" class='dropdown-item'>Logout</a>
+                  </div>
+                </div>
+                  <!-- <a class="nav-link" href=""><i class='fas fa-funnel-dollar'></i>Register</a> -->
+                </li>
+              </ul>
+            </div>
+          </nav>
+      </div>
+    </section>
+
+    <section id="form">
+<h1>Report</h1>
+   {% macro render_field(field) %}
+  <dt>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}
+<form method="POST" action="">
+        <div class = "form-group">
+            {{render_field(form.College_Name, class_="form-control")}}
+        </div>
+        <div class = "form-group">
+            {{render_field(form.Complain, class_="form-control")}}
+        </div>
+        <p><input type = "submit" class = "btn btn-primary" value=" Submit"></p>
+    </form>
+  </section>
+
+  <section id="footer">
+    <footer class="page-footer font-small">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2021 Copyright:
+        <a href="/"> CollegeFinder.com</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+  </section>
+
+</body>
+<style>
+    body{
+        background-color: #02475e;
+        max-width: 100vw;
+        margin: 0 auto ;
+        align-items: center;
+        color: white;
+    }
+    nav{
+        font-size: 1.2rem;
+    }
+  div.fluid-container{
+    background-color: #02475e;
+    padding: 0 10vw;
+    margin: 0 auto;
+  }
+  .shadow-lg{
+    box-shadow: 0 0.5rem 4rem #0f203a !important;
+  }
+  .fa-graduation-cap{
+    margin: 0 5%;
+  }
+  .logo-hover{
+    font-size: 1.5rem;
+  }
+  .logo-hover:hover{
+    color: gray;
+  }
+  .dropdown{
+    width: 110px;
+  }
+  .dropdown-toggle{
+    background-color: transparent;
+    color: white;
+    margin: 0 0.5vw;
+  }
+  .btn-dark{
+    background-color: black;
+  }
+  .fa-caret-down{
+    margin-left: 6px;
+  }
+  .navbtn{
+    width: 150px;
+    color: white;
+  }
+
+  #form{
+      margin: 8rem auto 232px;
+      width: 30rem;
+  }
+  h1{
+    margin: 5rem auto 2rem;
+    text-align: center;
+  }
+  #footer{
+    color: white;
+    background-color: black;
+  }
+
+</style>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table class ="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>COLLEGE NAME</th>
+            <th>USERNAME</th>
+            <th>COLLEGE EMAIL</th>
+        </tr>
+        {% for myprob in myproblems %}
+            <tr>
+                <td>{{myprob.College_Id}}</td>
+                <td>{{myprob.College_Name}}</td>
+                <td>{{myprob.Username}}</td>
+                <td>{{myprob.College_Email}}</td>
+          <form action="{{url_for('delete_college', College_Name=myprob.College_Name)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+<br>
+    <a href="/dashboard_admin"><i class='fas fa-funnel-dollar'></i>Dashboard</a>
+</body>
+</html>

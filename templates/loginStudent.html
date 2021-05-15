@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="title">
+      <div class="fluid-container fixed-top shadow-lg  mb-5">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="/"><span class="logo-hover"><i class="fas fa-graduation-cap"></i>CollegeFinder</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <!-- <a class="nav-link" href="">Contact</a> -->
+                  <div class="dropdown show">
+                  <a class="btn btn-outline-light" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Register<i class="fas fa-caret-down"></i>
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a href="/RegisterCollege" class='dropdown-item'>Register College</a>
+                    <a href="/registerstudent" class='dropdown-item'>Register Student</a>
+                  </div>
+                </div>
+                  <!-- <a class="nav-link" href=""><i class='fas fa-funnel-dollar'></i>Register</a> -->
+                </li>
+                <li class="nav-item">
+                  <!-- <a class="nav-link" href=""><i class='fas fa-funnel-dollar'></i>Login</a> -->
+                  <div class="dropdown show">
+                  <a class="btn btn-outline-light" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Login<i class="fas fa-caret-down"></i>
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a href="/LoginCollege" class='dropdown-item'>Login as College</a>
+                    <a href="/LoginStudent" class='dropdown-item'>Login as Student</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+      </div>
+    </section>
+
+
+<h1><u>Student Login</u></h1>
+
+<section id="form">
+    <form method="POST" actions="">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter your username" class="form-control" value={{request.form.username}}>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" class="form-control" value={{request.form.password}}>
+        </div>
+        <button type = "submit" class = "btn btn-primary">Login</button>
+    </form>
+    <br>
+    <a href="/"><i class='fas fa-funnel-dollar'></i>HOME</a>
+</section>
+
+</body>
+<style>
+   body{
+        background-color: #02475e;
+        max-width: 100vw;
+        margin: 0 auto;
+        align-items: center;
+        color: white;
+    }
+    nav{
+        font-size: 1.2rem;
+    }
+  div.fluid-container{
+    background-color: #02475e;
+    padding: 0 10vw;
+    margin: 0 auto;
+  }
+  .shadow-lg{
+    box-shadow: 0 0.5rem 4rem #0f203a !important;
+  }
+  .fa-graduation-cap{
+    margin: 0 5%;
+  }
+  .logo-hover{
+    font-size: 1.5rem;
+  }
+  .logo-hover:hover{
+    color: gray;
+  }
+  .dropdown{
+    width: 110px;
+  }
+  .dropdown-toggle{
+    background-color: transparent;
+    color: white;
+    margin: 0 0.5vw;
+  }
+  .btn-dark{
+    background-color: black;
+  }
+  .fa-caret-down{
+    margin-left: 6px;
+  } 
+
+
+  #form{
+      background-color: #0a2f3b;
+      margin: 75px 38%;
+      padding: 2% 3%;
+      font-size: 1rem;
+      border-radius: 2%;
+      font-weight: lighter;
+  }
+  h1{
+      text-align: center;
+      margin: 150px 0 20px;
+      font-family: 'Libre Baskerville', serif;
+  }
+
+</style>
+</html>
